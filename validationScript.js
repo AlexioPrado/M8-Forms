@@ -17,11 +17,13 @@ submit.addEventListener('click',verifyAlphaNum)
 
 function verifyAlphaNum(){
   let user = document.getElementById('inputField')
-  /*if (user.matches('[A-Z]+$') && user.matches('[0-9]+$')){
-    alert('yes')
-  } else {
-    alert('no')
-  }*/
-  alert(user.value)
+
+  //if(!(/[a-z]|[A-Z]$/.test(user))){
+  if (user.validity.valueMissing){
+    user.setCustomValidity('Please insert an alphanumeric value!');
+  } else if ((/[a-z]$/.test(user.value)) || (/[0-9]$/.test(user.value))){
+    user.setCustomValidity('OMG U ATE')
+  }
+  
 }
 
